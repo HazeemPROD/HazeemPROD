@@ -237,8 +237,8 @@ class App{
     moveDolly(dt){
         if (this.proxy === undefined) return;
         
-        const wallLimit = 5;
-        const speed = 150;
+        const wallLimit = 5; //changed wall limit from 1.3 to 5 (increases distance from wall)
+        const speed = 1500;
 		let pos = this.dolly.position.clone();
         pos.y += 1;
         
@@ -255,7 +255,7 @@ class App{
 		
 		let intersect = this.raycaster.intersectObject(this.proxy);
         if (intersect.length>0){
-            if (intersect[0].distance < wallLimit) blocked = true;
+            if (intersect[0].distance < wallLimit) blocked = true; //When distanced between wall and Dolly is less than wallLimit, blocked state changes from false to true
         }
 		
 		if (!blocked){
