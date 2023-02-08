@@ -251,7 +251,7 @@ class App{
         dir.negate();
 		this.raycaster.set(pos, dir);
 		
-        let blocked = false;
+        let blocked = true;
 		
 		let intersect = this.raycaster.intersectObject(this.proxy);
         if (intersect.length>0){
