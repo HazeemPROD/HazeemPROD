@@ -29,7 +29,7 @@ class App{
 		this.scene = new THREE.Scene();
         this.scene.add( this.dolly );
         
-		const ambient = new THREE.HemisphereLight(0xFFFFFF, 0xAAAAAA, 0.8);
+		const ambient = new THREE.HemisphereLight(0x0055b3, 0xFFCC00, 0.8);
 		this.scene.add(ambient);
 			
 		this.renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -237,7 +237,7 @@ class App{
     moveDolly(dt){
         if (this.proxy === undefined) return;
         
-        const wallLimit = 10; //changed wall limit from 1.3 to 10 (increases distance from wall)
+        const wallLimit = 5; //changed wall limit from 1.3 to 5 (increases distance from wall)
         const speed = 15000;
 		let pos = this.dolly.position.clone();
         pos.y += 1;
