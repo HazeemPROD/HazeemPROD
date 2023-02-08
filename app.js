@@ -237,10 +237,10 @@ class App{
     moveDolly(dt){
         if (this.proxy === undefined) return;
         
-        const wallLimit = 5; //changed wall limit from 1.3 to 5 (increases distance from wall)
+        const wallLimit = 10; //changed wall limit from 1.3 to 10 (increases distance from wall)
         const speed = 15000;
 		let pos = this.dolly.position.clone();
-        pos.y += 10;
+        pos.y += 1;
         
 		let dir = new THREE.Vector3();
         //Store original dolly rotation
