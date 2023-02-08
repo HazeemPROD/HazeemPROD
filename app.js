@@ -240,7 +240,7 @@ class App{
         const wallLimit = 5; //changed wall limit from 1.3 to 5 (increases distance from wall)
         const speed = 15000;
 		let pos = this.dolly.position.clone();
-        pos.y += 1;
+        pos.y += 10;
         
 		let dir = new THREE.Vector3();
         //Store original dolly rotation
