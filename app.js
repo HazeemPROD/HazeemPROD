@@ -238,7 +238,7 @@ class App{
         if (this.proxy === undefined) return;
         
         const wallLimit = 1.3;
-        const speed = 2;
+        const speed = 15;
 		let pos = this.dolly.position.clone();
         pos.y += 1;
         
@@ -251,7 +251,7 @@ class App{
         dir.negate();
 		this.raycaster.set(pos, dir);
 		
-        let blocked = true;
+        let blocked = false;
 		
 		let intersect = this.raycaster.intersectObject(this.proxy);
         if (intersect.length>0){
