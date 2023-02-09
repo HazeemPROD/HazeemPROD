@@ -251,11 +251,11 @@ class App{
         dir.negate();
 		this.raycaster.set(pos, dir);
 		
-        let blocked = false; 
+        let blocked = true; 
 		
 		let intersect = this.raycaster.intersectObject(this.proxy);
         if (intersect.length>0){
-            if (intersect[0].distance < wallLimit) blocked = true; //When distance between wall and Dolly is less than wallLimit, blocked state changes from false to true
+            if (intersect[0].distance < wallLimit) blocked = false; //When distance between wall and Dolly is less than wallLimit, blocked state changes from false to true
         }
 		
 		if (!blocked){
