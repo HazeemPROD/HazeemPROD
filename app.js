@@ -29,7 +29,7 @@ class App{
 		this.scene = new THREE.Scene();
         this.scene.add( this.dolly );
         
-		const ambient = new THREE.HemisphereLight(0xFFFFFF, 0xAAAAAA, 0.8);
+		const ambient = new THREE.HemisphereLight(0x0000FF, 0xFFFF00, 0.8); //colour code changed to blue and yellow respectively
 		this.scene.add(ambient);
 			
 		this.renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -237,8 +237,8 @@ class App{
     moveDolly(dt){
         if (this.proxy === undefined) return;
         
-        const wallLimit = 1.3;
-        const speed = 50;  //speed increased from 1 to 5
+        const wallLimit = 3; //wall limit changed from 1.3 to 3
+        const speed = 25;  //speed increased from 1 to 25
 		let pos = this.dolly.position.clone();
         pos.y += 1;
         
@@ -251,11 +251,11 @@ class App{
         dir.negate();
 		this.raycaster.set(pos, dir);
 		
-        let blocked = false;
+        let blocked = true; //false to true
 		
 		let intersect = this.raycaster.intersectObject(this.proxy);
         if (intersect.length>0){
-            if (intersect[0].distance < wallLimit) blocked = true;
+            if (intersect[0].distance < wallLimit) blocked = true; //When distance between wall and Dolly is less than wallLimit, blocked state changes from false to true
         }
 		
 		if (!blocked){
